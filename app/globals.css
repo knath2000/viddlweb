@@ -379,29 +379,6 @@ h1, h2, h3 {
   transform: translateY(-1px);
 }
 
-/* Workflow Steps */
-.step-number {
-  width: 42px;
-  height: 42px;
-  border-radius: 9999px;
-  background: linear-gradient(135deg, var(--accent-coral), var(--accent-pink));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 15px;
-  color: white;
-  box-shadow: 0 0 0 6px rgba(255, 107, 107, 0.15);
-}
-
-.step-connector {
-  height: 2px;
-  background: linear-gradient(to right, var(--accent-coral), var(--accent-lavender));
-  flex: 1;
-  margin: 0 12px;
-  opacity: 0.3;
-}
-
 /* FAQ */
 .faq-item {
   border-bottom: 1px solid var(--border-subtle);

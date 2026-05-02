@@ -1,9 +1,7 @@
-"use client";
-
+import Link from "next/link";
 import { GradientButton } from "./GradientButton";
 import { APP_NAME, VERSION, MIN_MACOS, DOWNLOAD_URL } from "../lib/constants";
 import { PromoSticker } from "./PromoSticker";
-import { LoopVideo } from "./LoopVideo";
 import { MascotSticker } from "./MascotSticker";
 
 interface DownloadCTAProps {
@@ -19,12 +17,8 @@ export function DownloadCTA({ id = "download" }: DownloadCTAProps) {
         </div>
 
         <div className="glass relative rounded-3xl p-10 md:p-14 text-center border border-white/10 flex-1 overflow-hidden">
-          <LoopVideo
-            src="/videos/cloud-transfer-loop.mp4"
-            className="absolute right-5 top-5 hidden h-24 w-24 rounded-2xl border border-white/10 object-cover opacity-70 xl:block"
-          />
           <div className="flex justify-center mb-3">
-            <PromoSticker variant="gift">One-time purchase</PromoSticker>
+            <PromoSticker variant="gift">Free download</PromoSticker>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-3">
@@ -38,16 +32,12 @@ export function DownloadCTA({ id = "download" }: DownloadCTAProps) {
             <GradientButton href={DOWNLOAD_URL} className="text-base px-10 py-4">
               Download for Mac
             </GradientButton>
-            <a
-              href="#"
+            <Link
+              href="/changelog"
               className="secondary-btn px-8 py-4 text-sm self-center"
-              onClick={(e) => {
-                e.preventDefault();
-                alert("Release notes would open here (v2.0.0 changelog).");
-              }}
             >
               Release notes
-            </a>
+            </Link>
           </div>
 
           <div className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-1 text-xs text-white/40 font-mono tracking-widest">

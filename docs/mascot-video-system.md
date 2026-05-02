@@ -4,15 +4,21 @@
 
 `viddlweb` is a static Next.js App Router landing page for VidDL. The current visual direction is a dark, professional macOS software site with polished Asian ecommerce campaign energy layered in through mascots, coupon chips, glow stickers, and short muted loop videos.
 
-The repo is not currently initialized as a Git repository. The app builds as a static route at `/`.
+The repo is initialized on `main` and pushed to `https://github.com/knath2000/viddlweb.git`. The app builds as a static route at `/` and is intended for Vercel deployment.
+
+The live download target is a public Vercel Blob DMG:
+
+```text
+https://ntljfyjjg5ctumgj.public.blob.vercel-storage.com/VidDL-2.0.0.dmg?download=1
+```
 
 ## Implemented Components
 
 - `MascotSticker`: shared wrapper around `next/image` for consistent mascot sizing, optional framing, optional float animation, and decorative/semantic alt behavior.
 - `LoopVideo`: shared decorative video wrapper using `autoPlay`, `muted`, `loop`, `playsInline`, and `preload="metadata"`.
-- `MascotCallout`: hero mascot and speech bubble near the app mockup, with a subtle hero loop video.
-- `FeatureCard`: now supports contextual mascot thumbnails without changing card dimensions.
-- `DownloadCTA`: uses the large hype mascot and a cloud transfer loop video.
+- `MascotCallout`: hero mascot and speech bubble positioned outside the app mockup so it supports the hero without covering app UI.
+- `FeatureCard`: supports contextual mascot thumbnails in normal card flow with fixed spacing below the copy.
+- `DownloadCTA`: uses the large hype mascot, a cloud transfer loop video, and a real DMG link via `DOWNLOAD_URL`.
 
 ## Asset Inventory
 
@@ -45,7 +51,7 @@ Loop videos live in `public/videos/`:
 
 - Hero:
   - `mascot-viddl-hero.png` in `MascotCallout`.
-  - `hero-mascot-loop.mp4` near the speech bubble.
+  - `hero-mascot-loop.mp4` exists but is not currently displayed; it was removed from the hero to keep the mockup cleaner.
 - Feature cards:
   - Paste pages: `mascot-batch-links.png`.
   - Quality/destination: `mascot-tools-setup.png`.
@@ -68,6 +74,7 @@ Loop videos live in `public/videos/`:
 - Download CTA:
   - `mascot-viddl-hype.png` as the large CTA mascot.
   - `cloud-transfer-loop.mp4` as a desktop cloud transfer accent.
+  - Download button uses the public Vercel Blob DMG URL from `DOWNLOAD_URL`.
 - FAQ/footer:
   - `mascot-support-faq.png` near the support line.
   - `mascot-release-notes.png` on Release notes hover.
@@ -78,8 +85,18 @@ Loop videos live in `public/videos/`:
 - Use one large mascot per section at most.
 - Use small mascots as contextual stickers, not as a dense illustration dump.
 - Keep mascots out of the app mockup unless they represent in-app UI.
-- Hide or reduce decorative motion under `prefers-reduced-motion`.
+- For current testing, do not suppress animations or videos under `prefers-reduced-motion`; all reduced-motion CSS overrides were removed so screenshots show the full motion system. Restore a production accessibility policy before release if needed.
 - Prefer real alpha PNGs for free-floating mascot art. If a future generated asset has baked background/checkerboard, clean it before wiring.
+- Do not run automated visual browser passes unless requested; the user will supply screenshots when visual review is needed.
+
+## GitHub And Release State
+
+- Remote: `https://github.com/knath2000/viddlweb.git`.
+- Branch: `main`.
+- Initial published commit: `4e3b548 feat: publish VidDL landing page`.
+- Download wiring commit: `3bfb877 fix: wire public dmg download`.
+- `gh` was not installed locally, so publishing used local `git` plus GitHub plugin verification.
+- GitHub plugin verified `main` contains `DOWNLOAD_URL` pointing at the public Vercel Blob DMG.
 
 ## Verification
 
@@ -98,6 +115,15 @@ sips -g hasAlpha public/mascot-*.png
 
 Final mascot outputs report `hasAlpha: yes`. The existing local dev server at `http://localhost:3000` responded with `200`, and sampled mascot/video asset URLs responded with `200`.
 
+The public DMG Blob URL responded with `HTTP 200` and:
+
+```text
+Content-Disposition: attachment; filename="VidDL-2.0.0.dmg"
+Content-Type: application/x-diskcopy
+```
+
 ## Useful Follow-Up
 
-Do a browser visual pass at desktop, tablet, and 390px mobile. The implementation is intentionally restrained, but the automated alpha cleanup may leave slight edge artifacts on a few assets generated with checkerboard previews. If one looks rough in-browser, regenerate or manually clean only that specific file.
+- Before production release, decide whether to restore a reduced-motion accessibility policy. For testing, all motion currently plays even when Reduce Motion is enabled.
+- If a future generated mascot has visible edge artifacts, regenerate or manually clean only that specific asset.
+- The UI currently labels the DMG as `18 MB`; the uploaded Blob response was about 2.9 MB. Update that display if the final signed/notarized DMG size differs.

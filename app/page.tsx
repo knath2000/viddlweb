@@ -1,17 +1,16 @@
 import React from "react";
+import Link from "next/link";
 import * as Lucide from "lucide-react";
 import { Icon } from "./lib/icons";
 import { AppWindowMockup } from "./components/AppWindowMockup";
 import { GradientButton } from "./components/GradientButton";
 import { NeonBadge } from "./components/NeonBadge";
 import { FeatureCard } from "./components/FeatureCard";
-import { PreviewLibraryGrid } from "./components/PreviewLibraryGrid";
+import { PreviewTour } from "./components/PreviewTour";
 import { FAQItem } from "./components/FAQItem";
 import { DownloadCTA } from "./components/DownloadCTA";
 import { MascotCallout } from "./components/MascotCallout";
 import { MascotSticker } from "./components/MascotSticker";
-import { PromoSticker } from "./components/PromoSticker";
-import { FloatingDecor } from "./components/FloatingDecor";
 import { LoopVideo } from "./components/LoopVideo";
 import {
   APP_NAME,
@@ -49,9 +48,6 @@ export default function VidDLWebsite() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <a href={DOWNLOAD_URL} className="secondary-btn hidden sm:flex text-xs px-5 py-2">
-              Download
-            </a>
             <GradientButton href={DOWNLOAD_URL} className="text-sm px-6 py-2.5">
               Get {APP_NAME}
             </GradientButton>
@@ -61,61 +57,46 @@ export default function VidDLWebsite() {
 
       {/* HERO */}
       <section className="hero-mesh pt-16 pb-20 md:pt-20 md:pb-24 relative overflow-hidden">
-        <FloatingDecor />
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:items-start">
             {/* Left Text */}
-            <div className="max-w-2xl">
-              <div className="mb-4 inline-flex items-center gap-3">
-                <PromoSticker variant="new" className="tracking-[1.5px]">Launch Special</PromoSticker>
-                <span className="campaign-sticker hidden sm:inline-flex rotate-[-4deg] px-3 py-1 bg-[#FF1493] text-white rounded-sm border border-white/40">
-                  NEW DROP
-                </span>
+            <div className="max-w-2xl lg:pt-8">
+              <div className="mb-4 text-xs font-semibold tracking-[2px] text-white/45">
+                VIDDL {VERSION} / FOR MACOS
               </div>
 
-              <h1 className="text-7xl md:text-8xl font-semibold tracking-[-4.5px] leading-[0.88] mb-4">
-                {APP_NAME}
+              <h1 className="max-w-[660px] text-5xl sm:text-6xl md:text-7xl font-semibold tracking-[-2px] md:tracking-[-3px] leading-[0.95] mb-5">
+                Download videos to your Mac, fast.
               </h1>
-              <p className="text-2xl md:text-3xl text-white/70 tracking-[-1px] mb-8">
-                A fast macOS video downloader for local saves, Mega, and Google Drive.
+              <p className="max-w-xl text-xl md:text-2xl text-white/70 tracking-[-0.7px] leading-snug mb-8">
+                Paste a supported link, choose local, Mega, or Google Drive, and let VidDL handle HLS, queues, and MP4 saves.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-8">
-                <div className="relative w-fit">
-                  <GradientButton href={DOWNLOAD_URL} className="text-base px-9 py-4 shine-hover" style={{ boxShadow: "0 0 0 1px rgba(255,107,107,0.4), 0 15px 40px -10px rgba(255,107,107,0.6)" }}>
-                    <Lucide.Download className="w-4 h-4" />
-                    Download for Mac
-                  </GradientButton>
-                  <div className="cta-promo-badge absolute -top-3 -right-4 rotate-[2deg] whitespace-nowrap">
-                    Pro unlock $0.99
-                  </div>
-                </div>
+                <GradientButton href={DOWNLOAD_URL} className="text-base px-9 py-4 shine-hover" style={{ boxShadow: "0 0 0 1px rgba(255,107,107,0.4), 0 15px 40px -10px rgba(255,107,107,0.6)" }}>
+                  <Lucide.Download className="w-4 h-4" />
+                  Download for Mac
+                </GradientButton>
                 <a href="#preview" className="secondary-btn px-8 py-4 text-sm flex items-center justify-center">
                   See what’s new
                 </a>
               </div>
 
-              {/* Meta pills */}
-              <div className="flex flex-wrap gap-2 text-xs mb-3">
-                <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60">{VERSION}</div>
-                <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60">{MIN_MACOS}</div>
-                <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60">Free to start</div>
-                <div className="px-3 py-1 rounded-full bg-[#FFD70010] border border-[#FFD70030] text-[#FCD34D]">Pro {PRICE} one-time</div>
-              </div>
-
-              {/* Coupon badges row */}
               <div className="flex flex-wrap items-center gap-2 text-xs">
                 <div className="coupon-chip">
-                  <Icon name="HardDrive" className="w-3 h-3" /> macOS 14+
+                  <span className="font-mono">v{VERSION}</span>
+                </div>
+                <div className="coupon-chip">
+                  <Icon name="HardDrive" className="w-3 h-3" /> {MIN_MACOS}
                 </div>
                 <div className="coupon-chip">
                   <Icon name="Play" className="w-3 h-3" /> HLS ready
                 </div>
-                <div className="coupon-chip coupon-chip--hot">
-                  <Icon name="Star" className="w-3 h-3" /> Pro $0.99 <span className="text-[9px] ml-1 opacity-90">HOT</span>
-                </div>
                 <div className="coupon-chip">
                   <Icon name="Cloud" className="w-3 h-3" /> Cloud transfers
+                </div>
+                <div className="coupon-chip coupon-chip--hot">
+                  <Icon name="Star" className="w-3 h-3" /> Pro {PRICE}
                 </div>
               </div>
             </div>
@@ -152,7 +133,7 @@ export default function VidDLWebsite() {
 
       {/* MAIN FEATURES */}
       <section id="features" className="max-w-7xl mx-auto px-6 pt-20 pb-16">
-        <div className="text-center mb-10">
+        <div className="max-w-3xl mx-auto text-center mb-10">
           <div className="text-xs tracking-[2px] text-white/40 mb-2">POWERFUL YET SIMPLE</div>
           <h2 className="text-5xl tracking-[-2px] font-semibold">Everything you need.<br />Nothing you don’t.</h2>
         </div>
@@ -176,37 +157,13 @@ export default function VidDLWebsite() {
       <section id="preview" className="bg-[#0A0A12] border-y border-white/10 py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col items-center text-center mb-10">
-            <NeonBadge variant="coral" className="mb-3">LIVE PREVIEW</NeonBadge>
             <h2 className="text-4xl md:text-5xl tracking-[-1.5px] font-semibold">See the app in action</h2>
             <p className="mt-3 max-w-md text-white/60">
-              The same UI you see in the screenshots — recreated with neutral content.
+              Click through every surface — Home, Downloads, Library, and Settings.
             </p>
           </div>
 
-          <div className="space-y-8">
-            {/* Home Preview */}
-            <div>
-              <div className="flex items-center gap-3 mb-3 px-1">
-                <div className="text-sm font-medium text-white/70">Home</div>
-                <MascotSticker mascot="queueSpeed" size="micro" className="hidden md:block" />
-                <div className="h-px flex-1 bg-white/10" />
-              </div>
-              <div className="mac-window p-1 bg-[#111114]">
-                <div className="rounded-lg overflow-hidden">
-                  <AppWindowMockup />
-                </div>
-              </div>
-            </div>
-
-            {/* Library Preview */}
-            <div>
-              <div className="flex items-center gap-3 mb-3 px-1">
-                <div className="text-sm font-medium text-white/70">Library</div>
-                <div className="h-px flex-1 bg-white/10" />
-              </div>
-              <PreviewLibraryGrid />
-            </div>
-          </div>
+          <PreviewTour />
         </div>
       </section>
 
@@ -220,19 +177,19 @@ export default function VidDLWebsite() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {WORKFLOW_STEPS.map((step, index) => (
             <React.Fragment key={index}>
-              <div className="glass-card flex-1 p-8 rounded-2xl text-center border border-white/10">
+              <div className="flex min-h-[280px] flex-1 flex-col items-center justify-center rounded-2xl border border-white/10 bg-[#16161C] p-8 text-center shadow-[0_20px_50px_-30px_rgba(0,0,0,0.8)]">
                 <MascotSticker
                   mascot={step.mascot}
                   size="card"
-                  floating={index === 0}
-                  className={`mx-auto mb-4 ${index === 0 ? "" : "hidden sm:block"}`}
+                  floating
+                  className={`mx-auto mb-6 hidden sm:block ${index === 1 ? "[animation-delay:300ms]" : ""} ${index === 2 ? "[animation-delay:600ms]" : ""}`}
                 />
-                <div className="step-number mx-auto mb-5">{step.step}</div>
+                <div className="mb-3 text-xs font-semibold tracking-[2px] text-[#FF6B6B]">STEP {step.step}</div>
                 <div className="font-semibold text-xl tracking-tight mb-2">{step.title}</div>
                 <p className="text-sm text-white/60 leading-snug">{step.desc}</p>
               </div>
               {index < WORKFLOW_STEPS.length - 1 && (
-                <div className="hidden md:block w-8 h-px bg-gradient-to-r from-[#FF6B6B] to-transparent opacity-40" />
+                <Lucide.ChevronRight className="hidden h-6 w-6 flex-shrink-0 text-[#FF6B6B]/70 md:block" />
               )}
             </React.Fragment>
           ))}
@@ -242,25 +199,25 @@ export default function VidDLWebsite() {
       {/* PRO SECTION */}
       <section id="pro" className="border-y border-white/10 bg-[#0A0A12] py-16">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid lg:grid-cols-[1fr_280px] gap-8 items-center">
+          <div className="grid lg:grid-cols-[1fr_280px] gap-8 items-start">
             <div className="text-center lg:text-left">
               <div className="inline-block mb-4">
                 <NeonBadge variant="gold">ONE-TIME PURCHASE</NeonBadge>
               </div>
 
               <h2 className="text-5xl tracking-[-2px] font-semibold mb-3">Go Pro once.<br />Keep downloading.</h2>
-              <div className="flex items-center justify-center gap-4 lg:justify-start">
-                <div className="text-6xl font-semibold tracking-tighter text-[#FFD700] mb-2">{PRICE}</div>
-                <MascotSticker mascot="couponPro" size="section" className="hidden sm:block" />
+              <div className="mb-2 flex items-end justify-center gap-3 lg:justify-start">
+                <div className="pb-3 text-2xl font-semibold tracking-tight text-white/25 line-through">$4.99</div>
+                <div className="text-8xl font-semibold tracking-tighter text-[#FFD700]">{PRICE}</div>
               </div>
               <div className="text-white/50 mb-8">One-time. No subscription. Ever.</div>
 
               <div className="grid sm:grid-cols-2 gap-3 max-w-md mx-auto lg:mx-0 mb-10 text-left">
                 {[
-                  "Higher download limits",
-                  "Priority cloud transfers (Mega / Drive)",
-                  "Faster repeat workflows",
-                  "Supports continued development",
+                  "Unlimited daily downloads",
+                  "2x faster cloud transfers",
+                  "Saved presets and templates",
+                  "Priority extractor updates",
                 ].map((b, i) => (
                   <div key={i} className="flex items-start gap-3 text-sm text-white/80">
                     <Lucide.Check className="w-4 h-4 mt-0.5 text-[#7FFF00] flex-shrink-0" />
@@ -273,8 +230,14 @@ export default function VidDLWebsite() {
                 Free tier is fully functional for casual use. Pro removes limits and unlocks advanced features.
               </p>
 
-              <div className="text-sm text-white/40">
-                Upgrade anytime inside the app • Instant activation
+              <div className="flex flex-col items-center gap-2 lg:items-start">
+                <GradientButton href={DOWNLOAD_URL} className="px-8 py-3 text-sm">
+                  <Lucide.Download className="h-4 w-4" />
+                  Download VidDL
+                </GradientButton>
+                <div className="text-xs text-white/40">
+                  Free to start • Upgrade in-app for {PRICE}
+                </div>
               </div>
             </div>
 
@@ -289,6 +252,9 @@ export default function VidDLWebsite() {
                   <div className="text-sm font-semibold text-[#FCD34D]">Pro coupon ready</div>
                   <div className="text-xs text-white/45">One tiny unlock. Big workflow boost.</div>
                 </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-black/20 px-3 py-2 text-xs leading-relaxed text-white/45">
+                Includes instant activation, cloud workflow boosts, and ongoing extractor updates.
               </div>
             </div>
           </div>
@@ -305,7 +271,7 @@ export default function VidDLWebsite() {
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-10">
             <div className="text-xs tracking-[2px] text-white/40 mb-1">QUESTIONS</div>
-            <h3 className="text-3xl font-semibold tracking-tight">Frequently asked questions</h3>
+            <h2 className="text-4xl font-semibold tracking-tight">Frequently asked questions</h2>
           </div>
 
           <div className="divide-y divide-white/10">
@@ -330,12 +296,12 @@ export default function VidDLWebsite() {
           <div className="flex gap-5">
             <a href="#" className="hover:text-white">Privacy</a>
             <a href="#" className="hover:text-white">Terms</a>
-            <a href="#" className="group relative inline-flex items-center gap-1 hover:text-white">
+            <Link href="/changelog" className="group relative inline-flex items-center gap-1 hover:text-white">
               Release notes
               <span className="absolute bottom-full left-1/2 mb-2 hidden -translate-x-1/2 opacity-0 transition group-hover:opacity-100 md:block">
                 <MascotSticker mascot="releaseNotes" size="micro" framed />
               </span>
-            </a>
+            </Link>
             <a href="#" className="hover:text-white">GitHub (yt-dlp)</a>
           </div>
           <div className="font-mono">Built for macOS 14+</div>

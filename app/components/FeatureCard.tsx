@@ -16,15 +16,23 @@ interface FeatureCardProps {
 export function FeatureCard({ title, description, icon, color, badge, mascot }: FeatureCardProps) {
   return (
     <GlassCard className="feature-card-pop group relative min-h-[220px] overflow-hidden">
-      {/* Colored top accent */}
-      <div className="h-1 w-full -mx-6 -mt-6 mb-4" style={{ backgroundColor: color }} />
+      <div
+        className="h-1 w-full -mx-6 -mt-6 mb-4"
+        style={{ background: `linear-gradient(90deg, ${color}, ${color}99 60%, transparent 95%)` }}
+      />
+
+      {mascot && (
+        <div className="pointer-events-none absolute right-5 top-5 z-10 h-10 w-10 opacity-70 drop-shadow-2xl transition duration-200 group-hover:-translate-y-0.5 group-hover:rotate-2 group-hover:opacity-95">
+          <MascotSticker mascot={mascot} size="tiny" className="h-full w-full" />
+        </div>
+      )}
 
       <div className="relative z-10">
         <div
-          className="icon-tile w-9 h-9 mb-4"
+          className="mb-4 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl"
           style={{ backgroundColor: `${color}20`, color }}
         >
-          <Icon name={icon} className="w-4.5 h-4.5" />
+          <Icon name={icon} className="w-5 h-5" />
         </div>
 
         <div className="flex items-start justify-between gap-2 mb-1.5">
@@ -36,23 +44,8 @@ export function FeatureCard({ title, description, icon, color, badge, mascot }: 
           )}
         </div>
 
-        <p className="max-w-[92%] text-sm text-white/60 leading-snug">{description}</p>
-
-        {mascot && (
-          <div className="mt-5 hidden h-12 items-end sm:flex">
-            <MascotSticker
-              mascot={mascot}
-              size="tiny"
-              className="feature-card-mascot opacity-40 transition duration-200 group-hover:-translate-y-0.5 group-hover:scale-105 group-hover:opacity-85"
-            />
-          </div>
-        )}
+        <p className="text-sm text-white/60 leading-snug">{description}</p>
       </div>
-
-      {/* Subtle sticker corner on some cards */}
-      {badge && (
-        <div className="sticker-corner absolute top-0 right-0 w-8 h-8 opacity-40" aria-hidden="true" />
-      )}
     </GlassCard>
   );
 }

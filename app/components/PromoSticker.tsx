@@ -11,7 +11,7 @@ const VARIANT_STYLES = {
   new: { bg: "bg-[#7FFF00]/15", border: "border-[#7FFF00]/40", text: "text-[#7FFF00]", icon: "Sparkles" },
   pro: { bg: "bg-[#FFD700]/15", border: "border-[#FFD700]/40", text: "text-[#FCD34D]", icon: "Star" },
   fast: { bg: "bg-[#00BFFF]/15", border: "border-[#00BFFF]/40", text: "text-[#7DD3FC]", icon: "Zap" },
-  gift: { bg: "bg-[#FF6B6B]/15", border: "border-[#FF6B6B]/40", text: "text-[#FFA3A3]", icon: "Gift" },
+  gift: { bg: "bg-[#FF6B6B]/15", border: "border-[#FF6B6B]/40", text: "text-[#FFA3A3]", icon: "Download" },
 };
 
 export function PromoSticker({ variant = "new", children, className = "" }: PromoStickerProps) {

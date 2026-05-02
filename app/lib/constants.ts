@@ -136,7 +136,6 @@ export const MAIN_FEATURES = [
     description: "Drop or paste links from many video sources. Supports direct streams and HLS.",
     icon: "Link",
     color: "#00BFFF",
-    badge: "NEW",
     mascot: "batchLinks",
   },
   {
@@ -151,7 +150,6 @@ export const MAIN_FEATURES = [
     description: "Fast local downloads with progress, queue management, and automatic organization.",
     icon: "Download",
     color: "#FF6B6B",
-    badge: "FAST",
     mascot: "localSafe",
   },
   {
@@ -218,7 +216,7 @@ export const WORKFLOW_STEPS = [
 export const FAQ_ITEMS = [
   {
     q: "What does VidDL support?",
-    a: "VidDL works with many supported video pages and stream hosts. It handles direct downloads, HLS streams, and common hosting patterns. Support is updated regularly.",
+    a: "VidDL supports YouTube, Vimeo, Twitter/X, Instagram, TikTok, Twitch, and 1,700+ other sites via yt-dlp. HLS streams are detected automatically and remuxed to MP4 for compatibility. Source support is updated regularly.",
   },
   {
     q: "Does VidDL work with HLS streams?",
@@ -237,7 +235,7 @@ export const FAQ_ITEMS = [
     a: "VidDL is a native macOS application built for Apple Silicon and Intel Macs running macOS 14 or later.",
   },
   {
-    q: "Why might VidDL need yt-dlp, ffmpeg, Mega, or rclone?",
-    a: "yt-dlp and ffmpeg power extraction and remuxing for many sources. Mega and rclone enable seamless cloud transfers. These are bundled or configured automatically where possible.",
+    q: "Does VidDL require any setup?",
+    a: "No. VidDL bundles or auto-configures everything it needs — yt-dlp and ffmpeg for extraction, Mega and rclone for cloud transfers. There's nothing to install separately.",
   },
 ] as const;
