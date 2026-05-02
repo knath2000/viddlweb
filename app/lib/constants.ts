@@ -2,7 +2,8 @@ export const APP_NAME = "VidDL" as const;
 export const VERSION = "2.0.0" as const;
 export const MIN_MACOS = "macOS 14+" as const;
 export const PRICE = "$0.99" as const;
-export const DOWNLOAD_URL = "#download" as const;
+export const DOWNLOAD_URL =
+  "https://ntljfyjjg5ctumgj.public.blob.vercel-storage.com/VidDL-2.0.0.dmg?download=1" as const;
 
 export const SITE_TITLE = "VidDL — Fast macOS Video Downloader";
 export const SITE_DESCRIPTION =

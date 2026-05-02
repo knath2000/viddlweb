@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
 import { GradientButton } from "./GradientButton";
-import { APP_NAME, VERSION, MIN_MACOS } from "../lib/constants";
+import { APP_NAME, VERSION, MIN_MACOS, DOWNLOAD_URL } from "../lib/constants";
 import { PromoSticker } from "./PromoSticker";
 import { LoopVideo } from "./LoopVideo";
 import { MascotSticker } from "./MascotSticker";
@@ -12,18 +11,6 @@ interface DownloadCTAProps {
 }
 
 export function DownloadCTA({ id = "download" }: DownloadCTAProps) {
-  const handleDownload = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const link = document.createElement("a");
-    link.href = "#";
-    link.download = `${APP_NAME}-${VERSION}.dmg`;
-    document.body.appendChild(link);
-    alert(
-      `Thank you for trying ${APP_NAME}!\n\nIn production this would download the DMG.\n\nInstall: Open the DMG → Drag ${APP_NAME} to Applications → Launch.`
-    );
-    link.remove();
-  };
-
   return (
     <div id={id} className="scroll-mt-20">
       <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-6">
@@ -48,7 +35,7 @@ export function DownloadCTA({ id = "download" }: DownloadCTAProps) {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
-            <GradientButton onClick={handleDownload} className="text-base px-10 py-4">
+            <GradientButton href={DOWNLOAD_URL} className="text-base px-10 py-4">
               Download for Mac
             </GradientButton>
             <a
