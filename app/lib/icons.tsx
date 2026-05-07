@@ -5,7 +5,8 @@ import React from "react";
 export type IconName =
   | "Home" | "History" | "Library" | "Download" | "Cloud" | "Clock" | "ArrowUpDown" | "Cpu" | "Settings"
   | "Video" | "Link2" | "Zap" | "Clapperboard" | "Search" | "Play" | "HardDrive" | "FolderOpen" | "List" | "Menu" | "Globe" | "Mic"
-  | "Link" | "CloudUpload" | "UploadCloud" | "BarChart3" | "Check" | "ChevronDown" | "Star" | "Gift" | "Tag" | "Sparkles";
+  | "Link" | "CloudUpload" | "UploadCloud" | "BarChart3" | "Check" | "ChevronDown" | "Star" | "Gift" | "Tag" | "Sparkles"
+  | "Rss" | "Heart" | "SquareCheckBig" | "Server" | "Files" | "Folder" | "RadioTower" | "ListChecks" | "WandSparkles";
 
 const ICON_MAP: Record<IconName, React.ComponentType<LucideProps>> = {
   Home: Lucide.Home,
@@ -39,6 +40,15 @@ const ICON_MAP: Record<IconName, React.ComponentType<LucideProps>> = {
   Gift: Lucide.Gift,
   Tag: Lucide.Tag,
   Sparkles: Lucide.Sparkles,
+  Rss: Lucide.Rss,
+  Heart: Lucide.Heart,
+  SquareCheckBig: Lucide.SquareCheckBig,
+  Server: Lucide.Server,
+  Files: Lucide.Files,
+  Folder: Lucide.Folder,
+  RadioTower: Lucide.RadioTower,
+  ListChecks: Lucide.ListChecks,
+  WandSparkles: Lucide.WandSparkles,
 };
 
 interface IconProps extends LucideProps {

@@ -25,7 +25,7 @@ export function DownloadCTA({ id = "download" }: DownloadCTAProps) {
             Download {APP_NAME} for macOS
           </h2>
           <p className="text-lg text-white/60 max-w-md mx-auto">
-            Native app. No subscription. One-time Pro unlock.
+            Native app with Feed discovery, batch extraction, and one-time Pro unlock.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">

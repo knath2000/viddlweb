@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import * as Lucide from "lucide-react";
 import { Icon } from "./lib/icons";
@@ -69,7 +68,7 @@ export default function VidDLWebsite() {
                 Download videos to your Mac, fast.
               </h1>
               <p className="max-w-xl text-xl md:text-2xl text-white/70 tracking-[-0.7px] leading-snug mb-8">
-                Paste a supported link, choose local, Mega, or Google Drive, and let VidDL handle HLS, queues, and MP4 saves.
+                Browse a built-in video feed, paste supported links, and let VidDL handle extraction, HLS, queues, and MP4 saves — locally or to the cloud.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-8">
@@ -85,6 +84,12 @@ export default function VidDLWebsite() {
               <div className="flex flex-wrap items-center gap-2 text-xs">
                 <div className="coupon-chip">
                   <span className="font-mono">v{VERSION}</span>
+                </div>
+                <div className="coupon-chip">
+                  <Icon name="Rss" className="w-3 h-3" /> Feed discovery
+                </div>
+                <div className="coupon-chip">
+                  <Icon name="RadioTower" className="w-3 h-3" /> Native extractors
                 </div>
                 <div className="coupon-chip">
                   <Icon name="HardDrive" className="w-3 h-3" /> {MIN_MACOS}
@@ -159,7 +164,7 @@ export default function VidDLWebsite() {
           <div className="flex flex-col items-center text-center mb-10">
             <h2 className="text-4xl md:text-5xl tracking-[-1.5px] font-semibold">See the app in action</h2>
             <p className="mt-3 max-w-md text-white/60">
-              Click through every surface — Home, Downloads, Library, and Settings.
+              Click through the current surfaces — Home, Feed, Favorites, Library, Files, and Settings.
             </p>
           </div>
 
@@ -170,28 +175,23 @@ export default function VidDLWebsite() {
       {/* WORKFLOW */}
       <section className="max-w-5xl mx-auto px-6 py-20">
         <div className="text-center mb-12">
-          <div className="text-[#FF6B6B] text-xs tracking-[2px] mb-2">THREE STEPS</div>
-          <h2 className="text-4xl tracking-tight font-semibold">From link to file in seconds</h2>
+          <div className="text-[#FF6B6B] text-xs tracking-[2px] mb-2">FOUR STEPS</div>
+          <h2 className="text-4xl tracking-tight font-semibold">From feed or link to file in seconds</h2>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {WORKFLOW_STEPS.map((step, index) => (
-            <React.Fragment key={index}>
-              <div className="flex min-h-[280px] flex-1 flex-col items-center justify-center rounded-2xl border border-white/10 bg-[#16161C] p-8 text-center shadow-[0_20px_50px_-30px_rgba(0,0,0,0.8)]">
-                <MascotSticker
-                  mascot={step.mascot}
-                  size="card"
-                  floating
-                  className={`mx-auto mb-6 hidden sm:block ${index === 1 ? "[animation-delay:300ms]" : ""} ${index === 2 ? "[animation-delay:600ms]" : ""}`}
-                />
-                <div className="mb-3 text-xs font-semibold tracking-[2px] text-[#FF6B6B]">STEP {step.step}</div>
-                <div className="font-semibold text-xl tracking-tight mb-2">{step.title}</div>
-                <p className="text-sm text-white/60 leading-snug">{step.desc}</p>
-              </div>
-              {index < WORKFLOW_STEPS.length - 1 && (
-                <Lucide.ChevronRight className="hidden h-6 w-6 flex-shrink-0 text-[#FF6B6B]/70 md:block" />
-              )}
-            </React.Fragment>
+            <div key={index} className="flex min-h-[260px] flex-col items-center justify-center rounded-2xl border border-white/10 bg-[#16161C] p-6 text-center shadow-[0_20px_50px_-30px_rgba(0,0,0,0.8)]">
+              <MascotSticker
+                mascot={step.mascot}
+                size="card"
+                floating
+                className={`mx-auto mb-6 hidden sm:block ${index === 1 ? "[animation-delay:300ms]" : ""} ${index === 2 ? "[animation-delay:600ms]" : ""} ${index === 3 ? "[animation-delay:900ms]" : ""}`}
+              />
+              <div className="mb-3 text-xs font-semibold tracking-[2px] text-[#FF6B6B]">STEP {step.step}</div>
+              <div className="font-semibold text-lg tracking-tight mb-2">{step.title}</div>
+              <p className="text-sm text-white/60 leading-snug">{step.desc}</p>
+            </div>
           ))}
         </div>
       </section>
@@ -202,7 +202,7 @@ export default function VidDLWebsite() {
           <div className="grid lg:grid-cols-[1fr_280px] gap-8 items-start">
             <div className="text-center lg:text-left">
               <div className="inline-block mb-4">
-                <NeonBadge variant="gold">ONE-TIME PURCHASE</NeonBadge>
+                <NeonBadge variant="gold">LAUNCH PRICE</NeonBadge>
               </div>
 
               <h2 className="text-5xl tracking-[-2px] font-semibold mb-3">Go Pro once.<br />Keep downloading.</h2>
@@ -215,7 +215,7 @@ export default function VidDLWebsite() {
               <div className="grid sm:grid-cols-2 gap-3 max-w-md mx-auto lg:mx-0 mb-10 text-left">
                 {[
                   "Unlimited daily downloads",
-                  "2x faster cloud transfers",
+                  "2x faster cloud and seedbox workflows",
                   "Saved presets and templates",
                   "Priority extractor updates",
                 ].map((b, i) => (

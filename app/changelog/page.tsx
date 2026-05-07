@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { APP_NAME, VERSION } from "../lib/constants";
+import { APP_NAME, PRICE, VERSION } from "../lib/constants";
 
 export const metadata = {
   title: `Release notes - ${APP_NAME}`,
@@ -17,10 +17,29 @@ export default function ChangelogPage() {
         <h1 className="mt-6 mb-2 text-5xl font-semibold tracking-[-2px]">Release notes</h1>
         <p className="mb-12 text-white/60">What&apos;s new in each version of {APP_NAME}.</p>
 
+        <article className="mb-12 space-y-4">
+          <header className="flex items-baseline gap-3 border-b border-white/10 pb-3">
+            <h2 className="text-2xl font-semibold">May 2026 Feed update</h2>
+            <span className="font-mono text-xs text-white/40">Latest</span>
+          </header>
+
+          <ul className="list-inside list-disc space-y-2 leading-relaxed text-white/80">
+            <li>Added built-in Feed tab for AllPornStream, HQPorner, and OnlyFan420.</li>
+            <li>Added hover preview scrub on Feed cards.</li>
+            <li>Added batch select and extract from Feed.</li>
+            <li>Added HQPorner native extraction without yt-dlp for direct MP4 qualities.</li>
+            <li>Added per-site UI theming in Feed.</li>
+            <li>Added advanced filtering with per-site capability awareness.</li>
+            <li>Preserved Feed state across tab switches.</li>
+            <li>Added lazy background HQPorner date resolution.</li>
+            <li>Added Feed favorites for saving items before extraction.</li>
+          </ul>
+        </article>
+
         <article className="space-y-4">
           <header className="flex items-baseline gap-3 border-b border-white/10 pb-3">
             <h2 className="text-2xl font-semibold">v{VERSION}</h2>
-            <span className="font-mono text-xs text-white/40">Latest</span>
+            <span className="font-mono text-xs text-white/40">Initial release</span>
           </header>
 
           <ul className="list-inside list-disc space-y-2 leading-relaxed text-white/80">
@@ -29,7 +48,7 @@ export default function ChangelogPage() {
             <li>Local MP4 saves with queue management.</li>
             <li>HLS stream extraction with automatic remuxing.</li>
             <li>Direct uploads to Mega and Google Drive.</li>
-            <li>Pro tier ($0.99 one-time): unlimited downloads, 2x cloud transfer speed, saved presets.</li>
+            <li>Pro tier ({PRICE} one-time): unlimited downloads, 2x cloud transfer speed, saved presets.</li>
           </ul>
         </article>
       </main>

@@ -4,6 +4,8 @@
 
 `viddlweb` is a static Next.js App Router landing page for VidDL. The current visual direction is a dark, professional macOS software site with polished Asian ecommerce campaign energy layered in through mascots, coupon chips, glow stickers, and short muted loop videos.
 
+As of the 2026-05-07 website sync, the site should present the current native app surfaces: Home, Feed, Favorites, Library, Files, and Settings. The old mock-only surfaces History, Downloads, Mega, Scheduler, Transfers, and Processing should not appear as primary app navigation in the website mockup.
+
 The repo is initialized on `main` and pushed to `https://github.com/knath2000/viddlweb.git`. The app builds as a static route at `/` and is intended for Vercel deployment.
 
 The live download target is a public Vercel Blob DMG:
@@ -19,6 +21,8 @@ https://ntljfyjjg5ctumgj.public.blob.vercel-storage.com/VidDL-2.0.0.dmg?download
 - `MascotCallout`: hero mascot and speech bubble positioned outside the app mockup so it supports the hero without covering app UI.
 - `FeatureCard`: supports contextual mascot thumbnails in normal card flow with fixed spacing below the copy.
 - `DownloadCTA`: uses the large hype mascot, a cloud transfer loop video, and a real DMG link via `DOWNLOAD_URL`.
+- `PreviewTour`: client-side tab controller for the current mock app screens.
+- `FeedScreen`, `FavoritesScreen`, and `FilesScreen`: static preview screens for Feed discovery, saved Feed items, and seedbox file management.
 
 ## Asset Inventory
 
@@ -53,6 +57,10 @@ Loop videos live in `public/videos/`:
   - `mascot-viddl-hero.png` in `MascotCallout`.
   - `hero-mascot-loop.mp4` exists but is not currently displayed; it was removed from the hero to keep the mockup cleaner.
 - Feature cards:
+  - Feed discovery: `mascot-browser-capture.png`.
+  - Feed favorites and Library: `mascot-library-archive.png`.
+  - Batch extraction: `mascot-batch-links.png`.
+  - Native/local extraction: `mascot-local-safe.png`.
   - Paste pages: `mascot-batch-links.png`.
   - Quality/destination: `mascot-tools-setup.png`.
   - Local MP4: `mascot-local-safe.png`.
@@ -62,12 +70,16 @@ Loop videos live in `public/videos/`:
   - Menu bar and Siri: `mascot-quick-action.png`.
   - Safari extension: `mascot-browser-capture.png`.
 - Preview:
-  - Home preview title: `mascot-queue-speed.png`.
-  - Library header: `mascot-library-archive.png`.
+  - Home preview shows Feed-aware extraction and queue state.
+  - Feed preview shows AllPornStream, HQPorner, and OnlyFan420/Rentry discovery.
+  - Favorites preview shows saved Feed items before extraction.
+  - Library preview remains inside macOS window chrome.
+  - Files preview shows seedbox/WebDAV browser state.
 - Workflow:
-  - Step 01: `mascot-batch-links.png`.
+  - Step 01: `mascot-browser-capture.png`.
   - Step 02: `mascot-tools-setup.png`.
   - Step 03: `mascot-download-complete.png`.
+  - Step 04: `mascot-cloud-transfer.png`.
 - Pro:
   - `mascot-coupon-pro.png` beside the price and in the side panel.
   - `pro-coupon-loop.mp4` in the desktop Pro side panel.
@@ -127,3 +139,4 @@ Content-Type: application/x-diskcopy
 - Before production release, decide whether to restore a reduced-motion accessibility policy. For testing, all motion currently plays even when Reduce Motion is enabled.
 - If a future generated mascot has visible edge artifacts, regenerate or manually clean only that specific asset.
 - The UI currently labels the DMG as `18 MB`; the uploaded Blob response was about 2.9 MB. Update that display if the final signed/notarized DMG size differs.
+- `npm run build` can fail in restricted-network Codex sessions because `next/font/google` fetches Geist and Geist Mono from `fonts.googleapis.com`; `npm run lint` and `npx tsc --noEmit` are the local no-network validation baseline unless the font dependency is changed or network is available.

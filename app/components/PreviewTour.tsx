@@ -5,8 +5,10 @@ import { AppWindowMockup, type PreviewScreen } from "./AppWindowMockup";
 
 const TABS = [
   { id: "home", label: "Home", sidebarLabel: "Home" },
-  { id: "downloads", label: "Downloads", sidebarLabel: "Downloads" },
+  { id: "feed", label: "Feed", sidebarLabel: "Feed" },
+  { id: "favorites", label: "Favorites", sidebarLabel: "Favorites" },
   { id: "library", label: "Library", sidebarLabel: "Library" },
+  { id: "files", label: "Files", sidebarLabel: "Files" },
   { id: "settings", label: "Settings", sidebarLabel: "Settings" },
 ] as const;
 

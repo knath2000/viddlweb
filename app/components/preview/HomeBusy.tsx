@@ -25,7 +25,7 @@ export function HomeBusy({ isHero = false }: HomeBusyProps) {
               {item.name}
             </div>
           ))}
-          <div className="platform-icon bg-white/10 text-[9px] border-white/20">+18</div>
+          <div className="platform-icon bg-white/10 text-[8px] border-white/20">+1.7K</div>
         </div>
       </div>
 
@@ -44,7 +44,7 @@ export function HomeBusy({ isHero = false }: HomeBusyProps) {
       <div className="px-5 pt-4">
         <button className="gradient-btn w-full py-3 text-base">
           <Lucide.Zap className="w-4 h-4" />
-          Extract All
+          Extract Selected
         </button>
       </div>
 
@@ -63,13 +63,13 @@ function HeroEmptyState() {
       </div>
       <div className="text-lg font-medium tracking-tight text-white/90 mb-1">Ready to download</div>
       <div className="text-sm text-white/50 max-w-[260px]">
-        Paste a supported video page above or drop multiple links.
+        Browse Feed picks, paste a supported page, or drop multiple links.
       </div>
 
       <div className="flex gap-2 mt-6">
-        <NeonBadge variant="sky">HLS</NeonBadge>
+        <NeonBadge variant="sky">Feed</NeonBadge>
+        <NeonBadge variant="gold">Native</NeonBadge>
         <NeonBadge variant="coral">4K</NeonBadge>
-        <NeonBadge variant="green">MP4</NeonBadge>
       </div>
     </div>
   );
@@ -79,25 +79,25 @@ function HomeQueue() {
   return (
     <div className="flex-1 px-5 py-4 space-y-3 overflow-hidden">
       <DownloadRow
-        platform="YT"
+        platform="HQ"
         title={LIBRARY_SAMPLES[0].title}
-        meta="1080p · MP4"
+        meta="HQ · MP4"
         progress={62}
-        detail="7:42 / 12:34 · 4.2 MB/s · saving locally"
+        detail="7:42 / 12:34 · native extract · saving locally"
       />
       <DownloadRow
-        platform="IG"
+        platform="OF"
         title={LIBRARY_SAMPLES[1].title}
         meta="720p · MP4"
         queued
-        detail="Position 1 in queue"
+        detail="Batch item 2 of 5"
       />
       <DownloadRow
-        platform="VM"
+        platform="APS"
         title={LIBRARY_SAMPLES[2].title}
         meta="1080p · MP4"
         done
-        detail="Saved · 188 MB · synced to Mega"
+        detail="Saved · 188 MB · synced to seedbox"
       />
     </div>
   );

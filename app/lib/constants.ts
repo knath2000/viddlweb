@@ -7,7 +7,7 @@ export const DOWNLOAD_URL =
 
 export const SITE_TITLE = "VidDL — Fast macOS Video Downloader";
 export const SITE_DESCRIPTION =
-  "Extract video from supported pages and save locally or send to Mega and Google Drive. Native macOS app with queue, library, transfers, and Pro features.";
+  "Browse built-in feeds, extract supported video pages, and save locally or send to Mega, Google Drive, and seedbox storage.";
 
 export const MASCOTS = {
   hero: {
@@ -100,31 +100,32 @@ export type MascotKey = keyof typeof MASCOTS;
 
 export const NAV_ITEMS = [
   { label: "Home", icon: "Home", color: "#00BFFF" },
-  { label: "History", icon: "History", color: "#E8933C" },
+  { label: "Feed", icon: "Rss", color: "#E8933C" },
+  { label: "Favorites", icon: "Heart", color: "#FF1493" },
   { label: "Library", icon: "Library", color: "#7FFF00" },
-  { label: "Downloads", icon: "Download", color: "#FF6B6B" },
-  { label: "Mega", icon: "Cloud", color: "#FFD700" },
-  { label: "Scheduler", icon: "Clock", color: "#B388FF" },
-  { label: "Transfers", icon: "ArrowUpDown", color: "#FF1493" },
-  { label: "Processing", icon: "Cpu", color: "#00BFFF" },
+  { label: "Files", icon: "Folder", color: "#FFD700" },
   { label: "Settings", icon: "Settings", color: "#6B7280" },
 ] as const;
 
 export const PLATFORM_ICONS = [
-  { name: "YT", color: "#FF0000" },
-  { name: "IG", color: "#E1306C" },
-  { name: "TT", color: "#000000" },
-  { name: "VM", color: "#1AB7EA" },
-  { name: "TW", color: "#1DA1F2" },
-  { name: "TK", color: "#FF0050" },
+  { name: "APS", color: "#B388FF" },
+  { name: "HQ", color: "#FF6B6B" },
+  { name: "OF", color: "#00BFFF" },
+  { name: "HLS", color: "#7FFF00" },
+  { name: "MP4", color: "#E8933C" },
 ] as const;
 
 export const FEATURE_PILLS = [
+  { label: "Built-in Feed", icon: "Rss", mascot: "browserCapture" },
+  { label: "Favorites", icon: "Heart", mascot: "libraryArchive" },
+  { label: "Batch extract", icon: "SquareCheckBig", mascot: "batchLinks" },
+  { label: "HQPorner native", icon: "RadioTower" },
   { label: "Local MP4 saves", icon: "HardDrive" },
   { label: "HLS streams", icon: "Play" },
   { label: "Mega uploads", icon: "Cloud" },
   { label: "Google Drive", icon: "FolderOpen" },
-  { label: "Queue tracking", icon: "List" },
+  { label: "Seedbox Files", icon: "Server", mascot: "cloudTransfer" },
+  { label: "Queue tracking", icon: "ListChecks" },
   { label: "Menu bar mode", icon: "Menu", mascot: "quickAction" },
   { label: "Safari extension", icon: "Globe", mascot: "browserCapture" },
   { label: "Siri Shortcuts", icon: "Mic", mascot: "quickAction" },
@@ -132,15 +133,43 @@ export const FEATURE_PILLS = [
 
 export const MAIN_FEATURES = [
   {
+    title: "Browse the built-in Feed",
+    description: "Discover videos from AllPornStream, HQPorner, and OnlyFan420 with search, filters, site theming, and hover preview scrub.",
+    icon: "Rss",
+    color: "#E8933C",
+    mascot: "browserCapture",
+  },
+  {
+    title: "Save Feed favorites",
+    description: "Mark feed items for later before extraction, then search, sort, open, copy, or extract from Favorites.",
+    icon: "Heart",
+    color: "#FF1493",
+    mascot: "libraryArchive",
+  },
+  {
+    title: "Batch select & extract",
+    description: "Multi-select videos from the Feed and send them into extraction together instead of opening each item one by one.",
+    icon: "SquareCheckBig",
+    color: "#7FFF00",
+    mascot: "batchLinks",
+  },
+  {
     title: "Paste supported video pages",
-    description: "Drop or paste links from many video sources. Supports direct streams and HLS.",
+    description: "Drop or paste links from 1,700+ yt-dlp sites plus VidDL native extractors.",
     icon: "Link",
     color: "#00BFFF",
     mascot: "batchLinks",
   },
   {
+    title: "HQPorner native extraction",
+    description: "Resolve direct MP4 qualities without yt-dlp, including 360p, 720p, and 1080p where available.",
+    icon: "RadioTower",
+    color: "#FF6B6B",
+    mascot: "localSafe",
+  },
+  {
     title: "Choose quality & destination",
-    description: "Pick resolution, format, and where to save — local folder, Mega, or Google Drive.",
+    description: "Pick resolution, format, and where to save — local folder, Mega, Google Drive, or seedbox.",
     icon: "Settings",
     color: "#E8933C",
     mascot: "toolsSetup",
@@ -168,8 +197,16 @@ export const MAIN_FEATURES = [
     mascot: "cloudTransfer",
   },
   {
+    title: "Manage seedbox files",
+    description: "Browse remote folders, track seedbox transfers, and keep cloud handoffs visible inside VidDL.",
+    icon: "Server",
+    color: "#FFD700",
+    badge: "PRO",
+    mascot: "cloudTransfer",
+  },
+  {
     title: "Track everything",
-    description: "Full history, active transfers, processing queue, and detailed logs in one place.",
+    description: "Home queue, Library timeline, active transfers, processed files, and detailed logs stay in one workflow.",
     icon: "BarChart3",
     color: "#B388FF",
     badge: "PRO",
@@ -184,58 +221,64 @@ export const PROMO_POINTS = [
 ] as const;
 
 export const LIBRARY_SAMPLES = [
-  { title: "Travel recap", date: "Today", duration: "12:34" },
-  { title: "Workshop recording", date: "Yesterday", duration: "45:12" },
-  { title: "Product demo", date: "Mar 12", duration: "08:45" },
-  { title: "Lecture archive", date: "Mar 10", duration: "1:22:09" },
-  { title: "Clip collection", date: "Mar 8", duration: "23:17" },
-  { title: "Team sync", date: "Mar 5", duration: "34:56" },
+  { title: "Featured studio clip", date: "Today", duration: "12:34" },
+  { title: "Saved feed pick", date: "Yesterday", duration: "45:12" },
+  { title: "HQ native extract", date: "Mar 12", duration: "08:45" },
+  { title: "Cloud transfer archive", date: "Mar 10", duration: "1:22:09" },
+  { title: "Batch extraction set", date: "Mar 8", duration: "23:17" },
+  { title: "Seedbox collection", date: "Mar 5", duration: "34:56" },
 ] as const;
 
 export const WORKFLOW_STEPS = [
   {
     step: "01",
-    title: "Paste or drop URLs",
-    desc: "Copy links from your browser or drag files. Supports batch paste.",
-    mascot: "batchLinks",
+    title: "Browse Feed or paste URLs",
+    desc: "Discover videos in Feed, favorite them, or paste supported links directly.",
+    mascot: "browserCapture",
   },
   {
     step: "02",
     title: "Pick quality & destination",
-    desc: "Select format, resolution, and target: local, Mega, or Google Drive.",
+    desc: "Select format, resolution, and target: local, cloud, or seedbox.",
     mascot: "toolsSetup",
   },
   {
     step: "03",
     title: "Download or upload",
-    desc: "Queue starts automatically. Track progress in real time.",
+    desc: "Extract one item or batch selections and track progress in the Home queue.",
     mascot: "downloadComplete",
+  },
+  {
+    step: "04",
+    title: "Send to cloud or seedbox",
+    desc: "Optionally move files to Mega, Google Drive, or seedbox storage.",
+    mascot: "cloudTransfer",
   },
 ] as const;
 
 export const FAQ_ITEMS = [
   {
     q: "What does VidDL support?",
-    a: "VidDL supports YouTube, Vimeo, Twitter/X, Instagram, TikTok, Twitch, and 1,700+ other sites via yt-dlp. HLS streams are detected automatically and remuxed to MP4 for compatibility. Source support is updated regularly.",
+    a: "VidDL supports 1,700+ sites via yt-dlp, plus native extractors for pmvhaven.com, HQPorner, AllPornStream, LuluStream, Vidara, StreamTape, MixDrop, DoodStream, and more. It also handles direct HLS and MP4 URLs.",
   },
   {
     q: "Does VidDL work with HLS streams?",
-    a: "Yes. It can detect and download HLS playlists, remuxing to MP4 where possible for maximum compatibility.",
+    a: "Yes. VidDL detects and downloads HLS (.m3u8) streams, remuxing them to MP4 automatically.",
   },
   {
     q: "Can VidDL upload to Mega or Google Drive?",
-    a: "Absolutely. Connect your Mega or Google Drive account once in Settings and send completed downloads directly to the cloud with one click or automatically.",
+    a: "Yes. Authenticate once and VidDL uploads directly to your account with transfer tracking and resume support.",
   },
   {
     q: "Is VidDL free?",
-    a: "Core downloading is free to start. Pro unlocks higher limits, faster cloud workflows, priority updates, and supports ongoing development. One-time purchase.",
+    a: "VidDL is free to download and use. Pro ($0.99 one-time) removes limits and unlocks advanced features. No subscription.",
   },
   {
     q: "Does VidDL run on Windows?",
-    a: "VidDL is a native macOS application built for Apple Silicon and Intel Macs running macOS 14 or later.",
+    a: "No. VidDL is a native macOS app for macOS 14 and later, supporting both Apple Silicon and Intel.",
   },
   {
     q: "Does VidDL require any setup?",
-    a: "No. VidDL bundles or auto-configures everything it needs — yt-dlp and ffmpeg for extraction, Mega and rclone for cloud transfers. There's nothing to install separately.",
+    a: "Only yt-dlp and ffmpeg are required for full site support. The app will prompt you to install them via Homebrew on first launch.",
   },
 ] as const;
