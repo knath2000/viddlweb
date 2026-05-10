@@ -25,7 +25,7 @@ export function DownloadCTA({ id = "download" }: DownloadCTAProps) {
             Download {APP_NAME} for macOS
           </h2>
           <p className="text-lg text-white/60 max-w-md mx-auto">
-            Native app with Feed discovery, batch extraction, and one-time Pro unlock.
+            Native app with downloads, Pro Feed discovery, saved favorites, and AI Profile analysis.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
@@ -45,7 +45,7 @@ export function DownloadCTA({ id = "download" }: DownloadCTAProps) {
             <div>•</div>
             <div>{MIN_MACOS}</div>
             <div>•</div>
-            <div>DMG • 18 MB</div>
+            <div>DMG • 4.8 MB</div>
             <div>•</div>
             <div>Apple Silicon + Intel</div>
           </div>

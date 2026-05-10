@@ -7,7 +7,7 @@ export const DOWNLOAD_URL =
 
 export const SITE_TITLE = "VidDL — Fast macOS Video Downloader";
 export const SITE_DESCRIPTION =
-  "Browse built-in feeds, extract supported video pages, and save locally or send to Mega, Google Drive, and seedbox storage.";
+  "Download supported video pages, browse Pro Feed discovery, and analyze saved favorites with AI Profile insights.";
 
 export const MASCOTS = {
   hero: {
@@ -104,13 +104,14 @@ export const NAV_ITEMS = [
   { label: "Favorites", icon: "Heart", color: "#FF1493" },
   { label: "Library", icon: "Library", color: "#7FFF00" },
   { label: "Files", icon: "Folder", color: "#FFD700" },
+  { label: "Profile", icon: "WandSparkles", color: "#FCD34D" },
   { label: "Settings", icon: "Settings", color: "#6B7280" },
 ] as const;
 
 export const PLATFORM_ICONS = [
-  { name: "APS", color: "#B388FF" },
-  { name: "HQ", color: "#FF6B6B" },
-  { name: "OF", color: "#00BFFF" },
+  { name: "FD", color: "#B388FF" },
+  { name: "NAT", color: "#FF6B6B" },
+  { name: "YT", color: "#00BFFF" },
   { name: "HLS", color: "#7FFF00" },
   { name: "MP4", color: "#E8933C" },
 ] as const;
@@ -118,8 +119,9 @@ export const PLATFORM_ICONS = [
 export const FEATURE_PILLS = [
   { label: "Built-in Feed", icon: "Rss", mascot: "browserCapture" },
   { label: "Favorites", icon: "Heart", mascot: "libraryArchive" },
+  { label: "AI Profile", icon: "WandSparkles", mascot: "supportFaq" },
   { label: "Batch extract", icon: "SquareCheckBig", mascot: "batchLinks" },
-  { label: "HQPorner native", icon: "RadioTower" },
+  { label: "Native extractors", icon: "RadioTower" },
   { label: "Local MP4 saves", icon: "HardDrive" },
   { label: "HLS streams", icon: "Play" },
   { label: "Mega uploads", icon: "Cloud" },
@@ -127,16 +129,16 @@ export const FEATURE_PILLS = [
   { label: "Seedbox Files", icon: "Server", mascot: "cloudTransfer" },
   { label: "Queue tracking", icon: "ListChecks" },
   { label: "Menu bar mode", icon: "Menu", mascot: "quickAction" },
-  { label: "Safari extension", icon: "Globe", mascot: "browserCapture" },
   { label: "Siri Shortcuts", icon: "Mic", mascot: "quickAction" },
 ] as const;
 
 export const MAIN_FEATURES = [
   {
     title: "Browse the built-in Feed",
-    description: "Discover videos from AllPornStream, HQPorner, and OnlyFan420 with search, filters, site theming, and hover preview scrub.",
+    description: "Discover videos from supported Feed sources with search, filters, site theming, and hover preview scrub.",
     icon: "Rss",
     color: "#E8933C",
+    badge: "PRO",
     mascot: "browserCapture",
   },
   {
@@ -144,7 +146,16 @@ export const MAIN_FEATURES = [
     description: "Mark feed items for later before extraction, then search, sort, open, copy, or extract from Favorites.",
     icon: "Heart",
     color: "#FF1493",
+    badge: "PRO",
     mascot: "libraryArchive",
+  },
+  {
+    title: "Build your AI Profile",
+    description: "Analyze saved favorites, Feed evidence, and Library history to surface performers, categories, tags, and quality patterns.",
+    icon: "WandSparkles",
+    color: "#FCD34D",
+    badge: "PRO",
+    mascot: "supportFaq",
   },
   {
     title: "Batch select & extract",
@@ -161,8 +172,8 @@ export const MAIN_FEATURES = [
     mascot: "batchLinks",
   },
   {
-    title: "HQPorner native extraction",
-    description: "Resolve direct MP4 qualities without yt-dlp, including 360p, 720p, and 1080p where available.",
+    title: "Native MP4 extraction",
+    description: "Resolve direct MP4 qualities without yt-dlp from supported native extractors where available.",
     icon: "RadioTower",
     color: "#FF6B6B",
     mascot: "localSafe",
@@ -216,14 +227,14 @@ export const MAIN_FEATURES = [
 
 export const PROMO_POINTS = [
   "One-time unlock",
-  "Cloud transfer boost",
-  "Queue-friendly workflow",
+  "Feed, Favorites, Profile",
+  "Advanced workflows",
 ] as const;
 
 export const LIBRARY_SAMPLES = [
   { title: "Featured studio clip", date: "Today", duration: "12:34" },
   { title: "Saved feed pick", date: "Yesterday", duration: "45:12" },
-  { title: "HQ native extract", date: "Mar 12", duration: "08:45" },
+  { title: "Native MP4 extract", date: "Mar 12", duration: "08:45" },
   { title: "Cloud transfer archive", date: "Mar 10", duration: "1:22:09" },
   { title: "Batch extraction set", date: "Mar 8", duration: "23:17" },
   { title: "Seedbox collection", date: "Mar 5", duration: "34:56" },
@@ -259,7 +270,15 @@ export const WORKFLOW_STEPS = [
 export const FAQ_ITEMS = [
   {
     q: "What does VidDL support?",
-    a: "VidDL supports 1,700+ sites via yt-dlp, plus native extractors for pmvhaven.com, HQPorner, AllPornStream, LuluStream, Vidara, StreamTape, MixDrop, DoodStream, and more. It also handles direct HLS and MP4 URLs.",
+    a: "VidDL supports 1,700+ sites via yt-dlp, selected native streaming-host extractors, and direct HLS or MP4 URLs.",
+  },
+  {
+    q: "What does VidDL Pro unlock?",
+    a: "Pro unlocks unlimited downloads, Feed discovery, saved Feed Favorites, AI Profile analysis, higher concurrent download limits, larger batch downloads, multi-cloud upload, video processing tools, audio downloads, and subtitles.",
+  },
+  {
+    q: "What is AI Profile?",
+    a: "AI Profile analyzes saved favorites, Feed evidence, and Library history to summarize recurring performers, categories, tags, studios, and preferred quality patterns.",
   },
   {
     q: "Does VidDL work with HLS streams?",
@@ -271,7 +290,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Is VidDL free?",
-    a: "VidDL is free to download and use. Pro ($0.99 one-time) removes limits and unlocks advanced features. No subscription.",
+    a: "VidDL is free to download and includes 3 free downloads. Pro ($0.99 one-time) removes limits and unlocks advanced features. No subscription.",
   },
   {
     q: "Does VidDL run on Windows?",

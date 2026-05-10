@@ -2,10 +2,10 @@ import React from "react";
 import * as Lucide from "lucide-react";
 
 const FEED_ITEMS = [
-  { site: "HQPorner", title: "Featured studio clip", meta: "1080p · 12:34", accent: "#FF6B6B" },
-  { site: "AllPornStream", title: "New provider pick", meta: "HLS · 23:17", accent: "#B388FF" },
-  { site: "OnlyFan420", title: "Fresh feed entry", meta: "720p · saved", accent: "#00BFFF" },
-  { site: "HQPorner", title: "Native MP4 result", meta: "360p / 720p / 1080p", accent: "#7FFF00" },
+  { site: "Native", title: "Featured studio clip", meta: "1080p · 12:34", accent: "#FF6B6B" },
+  { site: "Feed source", title: "New provider pick", meta: "HLS · 23:17", accent: "#B388FF" },
+  { site: "Saved source", title: "Fresh feed entry", meta: "720p · saved", accent: "#00BFFF" },
+  { site: "Direct MP4", title: "Native MP4 result", meta: "360p / 720p / 1080p", accent: "#7FFF00" },
 ] as const;
 
 export function FeedScreen() {
@@ -14,7 +14,7 @@ export function FeedScreen() {
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div>
           <div className="font-semibold tracking-tight">Feed</div>
-          <div className="text-xs text-white/40">AllPornStream · HQPorner · OnlyFan420</div>
+          <div className="text-xs text-white/40">Built-in sources · native extractors · previews</div>
         </div>
         <div className="flex flex-wrap gap-1.5 text-[11px]">
           {["All sites", "HD", "Recent", "Favorites"].map((item, index) => (

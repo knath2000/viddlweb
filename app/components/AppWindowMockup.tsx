@@ -6,9 +6,10 @@ import { FeedScreen } from "./preview/FeedScreen";
 import { FavoritesScreen } from "./preview/FavoritesScreen";
 import { LibraryScreen } from "./preview/LibraryScreen";
 import { FilesScreen } from "./preview/FilesScreen";
+import { ProfileScreen } from "./preview/ProfileScreen";
 import { SettingsScreen } from "./preview/SettingsScreen";
 
-export type PreviewScreen = "home" | "feed" | "favorites" | "library" | "files" | "settings";
+export type PreviewScreen = "home" | "feed" | "favorites" | "library" | "files" | "profile" | "settings";
 
 interface AppWindowMockupProps {
   variant?: "full" | "hero";
@@ -54,7 +55,7 @@ export function AppWindowMockup({
 
             {!isHero && (
               <div className="hidden xl:flex items-center gap-2 text-xs text-white/50">
-                <div className="px-2 py-0.5 rounded bg-white/5">Feed sources: APS / HQ / OF</div>
+                <div className="px-2 py-0.5 rounded bg-white/5">Feed: built-in / HLS / MP4</div>
               </div>
             )}
           </div>
@@ -64,14 +65,15 @@ export function AppWindowMockup({
           {screen === "favorites" && <FavoritesScreen />}
           {screen === "library" && <LibraryScreen />}
           {screen === "files" && <FilesScreen />}
+          {screen === "profile" && <ProfileScreen />}
           {screen === "settings" && <SettingsScreen />}
 
           <div className="h-9 border-t border-white/10 px-5 flex items-center overflow-hidden whitespace-nowrap text-[11px] text-white/40">
             {isHero ? (
-              "Feed: 3 sources • Queue: 0 • Ready"
+              "Pro Feed: ready • Queue: 0 • Profile: ready"
             ) : (
               <>
-                Feed: 3 sources • Queue: 3 active • Library: 128 •
+                Pro Feed: ready • Queue: 3 active • Library: 128 • Profile: ready •
                 <span className="ml-1.5 inline-flex items-center gap-1.5">
                   <span className="h-2 w-2 rounded-full bg-[#7FFF00]" />
                   Helper online

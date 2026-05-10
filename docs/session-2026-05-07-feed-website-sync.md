@@ -2,36 +2,48 @@
 
 ## Scope
 
-This session investigated `/Users/kalyannath/Projects/viddlweb`, then updated the static Next.js marketing site so it matches the current VidDL macOS app state after the Feed, Favorites, Files, HQPorner, and seedbox work.
+This session investigated `/Users/kalyannath/Projects/viddlweb`, then updated the static Next.js marketing site so it matches the current VidDL macOS app state after the Feed, Favorites, Files, native extractor, and seedbox work.
+
+2026-05-09 follow-up: the website was updated again for the current native Pro/Profile/Settings state.
 
 ## Source Of Truth Checked
 
 - `viddlweb` is a static Next.js App Router site on `main`, remote `https://github.com/knath2000/viddlweb.git`.
-- The native VidDL app now exposes these primary destinations: Home, Feed, Favorites, Library, Files, Settings.
+- The native VidDL app now exposes these primary destinations: Home, Feed, Favorites, Library, Files, Profile, Settings.
 - The native app README confirms Pro remains a one-time `$0.99` purchase.
-- The native app changelog confirms the recent Feed/HQPorner work:
-  - Built-in Feed sources: AllPornStream, HQPorner, OnlyFan420/Rentry.
+- The native app now exposes Profile as a primary destination and gates Feed, Favorites, and Profile behind Pro.
+- The latest native changelog confirms Settings Cloud Destinations was simplified into one selector-driven section.
+- Legacy upload automation rules, updater integration, and companion-entrypoint scope were removed from the native app.
+- AI Profile analysis now uses saved favorites, Feed evidence, and Library history, with formatting fixes for cached flattened narratives.
+- The native app changelog confirms the recent Feed and native extractor work:
+  - Built-in Feed sources with search, filtering, and preview support.
   - Feed batch selection and extraction.
-  - Feed hover preview scrub for HQPorner previews.
+  - Feed hover preview scrub.
   - Site-capability-aware filtering and sorting.
-  - Lazy HQPorner detail-page date resolution.
+  - Lazy detail-page date resolution.
   - Site-specific Feed theming.
-  - Native HQPorner extraction through the nested player iframe with referer-aware MP4 qualities.
+  - Native extraction through player iframe handling with referer-aware MP4 qualities.
 
 ## Website Changes
 
 - Updated hero subtitle to lead with built-in Feed discovery and extraction.
 - Added hero chips for Feed discovery and native extractors.
-- Replaced the mock app sidebar destinations with Home, Feed, Favorites, Library, Files, Settings.
+- Replaced the mock app sidebar destinations with Home, Feed, Favorites, Library, Files, Profile, Settings.
 - Replaced the old PreviewTour tabs with the current app destinations.
 - Added new mock preview screens:
   - `FeedScreen`
   - `FavoritesScreen`
   - `FilesScreen`
+  - `ProfileScreen`
 - Removed the stale `DownloadsScreen` mock.
 - Updated the mock app top badges from only `YT-DLP READY` to `NATIVE EXTRACTORS`, `YT-DLP 1700+`, and `PRO`.
-- Updated the source chip row from generic platform abbreviations to APS, HQ, OF, HLS, MP4, plus `+1.7K`.
-- Expanded feature pills and cards to cover Feed, Favorites, batch extract, HQPorner native extraction, and seedbox Files.
+- Updated the source chip row to generic labels: FD, NAT, YT, HLS, MP4, plus `+1.7K`.
+- Expanded feature pills and cards to cover Feed, Favorites, batch extract, native extraction, and seedbox Files.
+- Added AI Profile as a Pro feature card, Pro benefit, preview tab, FAQ item, and changelog entry.
+- Updated Pro messaging around unlimited downloads, Feed discovery, saved Feed Favorites, AI Profile analysis, and advanced cloud/seedbox workflows.
+- Updated Settings preview to show one Cloud Destinations selector with per-destination setup fields.
+- Removed provider-specific public marketing labels and stale browser-extension wording from rendered website copy.
+- Updated the displayed DMG size from `18 MB` to `4.8 MB` based on the local generated DMG.
 - Changed the workflow from three steps to four:
   1. Browse Feed or paste URLs.
   2. Pick quality and destination.
@@ -55,6 +67,7 @@ This session investigated `/Users/kalyannath/Projects/viddlweb`, then updated th
 - `app/components/preview/FeedScreen.tsx`
 - `app/components/preview/FavoritesScreen.tsx`
 - `app/components/preview/FilesScreen.tsx`
+- `app/components/preview/ProfileScreen.tsx`
 - `app/components/preview/DownloadsScreen.tsx` removed
 - `app/changelog/page.tsx`
 

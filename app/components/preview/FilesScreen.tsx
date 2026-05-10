@@ -4,7 +4,7 @@ import * as Lucide from "lucide-react";
 const REMOTE_ITEMS = [
   { name: "Incoming", kind: "Folder", size: "12 files" },
   { name: "Completed", kind: "Folder", size: "42 files" },
-  { name: "hq-native-extract.mp4", kind: "MP4", size: "188 MB" },
+  { name: "native-mp4-extract.mp4", kind: "MP4", size: "188 MB" },
   { name: "batch-feed-set.mp4", kind: "MP4", size: "452 MB" },
 ] as const;
 

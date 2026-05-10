@@ -3,9 +3,9 @@ import * as Lucide from "lucide-react";
 import { LIBRARY_SAMPLES } from "../../lib/constants";
 
 const FAVORITES = [
-  { title: LIBRARY_SAMPLES[1].title, site: "OnlyFan420", age: "Saved today" },
-  { title: LIBRARY_SAMPLES[0].title, site: "HQPorner", age: "Saved yesterday" },
-  { title: LIBRARY_SAMPLES[4].title, site: "AllPornStream", age: "Saved Mar 8" },
+  { title: LIBRARY_SAMPLES[1].title, site: "Feed", age: "Saved today" },
+  { title: LIBRARY_SAMPLES[0].title, site: "Native", age: "Saved yesterday" },
+  { title: LIBRARY_SAMPLES[4].title, site: "Batch", age: "Saved Mar 8" },
 ] as const;
 
 export function FavoritesScreen() {

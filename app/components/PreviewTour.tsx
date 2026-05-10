@@ -9,6 +9,7 @@ const TABS = [
   { id: "favorites", label: "Favorites", sidebarLabel: "Favorites" },
   { id: "library", label: "Library", sidebarLabel: "Library" },
   { id: "files", label: "Files", sidebarLabel: "Files" },
+  { id: "profile", label: "Profile", sidebarLabel: "Profile" },
   { id: "settings", label: "Settings", sidebarLabel: "Settings" },
 ] as const;
 

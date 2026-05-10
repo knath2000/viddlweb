@@ -68,7 +68,7 @@ export default function VidDLWebsite() {
                 Download videos to your Mac, fast.
               </h1>
               <p className="max-w-xl text-xl md:text-2xl text-white/70 tracking-[-0.7px] leading-snug mb-8">
-                Browse a built-in video feed, paste supported links, and let VidDL handle extraction, HLS, queues, and MP4 saves — locally or to the cloud.
+                Paste supported links, browse the Pro Feed, save favorites, and let VidDL handle extraction, HLS, queues, MP4 saves, and AI Profile insights.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-8">
@@ -90,6 +90,9 @@ export default function VidDLWebsite() {
                 </div>
                 <div className="coupon-chip">
                   <Icon name="RadioTower" className="w-3 h-3" /> Native extractors
+                </div>
+                <div className="coupon-chip">
+                  <Icon name="WandSparkles" className="w-3 h-3" /> AI Profile
                 </div>
                 <div className="coupon-chip">
                   <Icon name="HardDrive" className="w-3 h-3" /> {MIN_MACOS}
@@ -164,7 +167,7 @@ export default function VidDLWebsite() {
           <div className="flex flex-col items-center text-center mb-10">
             <h2 className="text-4xl md:text-5xl tracking-[-1.5px] font-semibold">See the app in action</h2>
             <p className="mt-3 max-w-md text-white/60">
-              Click through the current surfaces — Home, Feed, Favorites, Library, Files, and Settings.
+              Click through the current surfaces — Home, Feed, Favorites, Library, Files, Profile, and Settings.
             </p>
           </div>
 
@@ -215,9 +218,9 @@ export default function VidDLWebsite() {
               <div className="grid sm:grid-cols-2 gap-3 max-w-md mx-auto lg:mx-0 mb-10 text-left">
                 {[
                   "Unlimited daily downloads",
-                  "2x faster cloud and seedbox workflows",
-                  "Saved presets and templates",
-                  "Priority extractor updates",
+                  "Feed discovery and saved Favorites",
+                  "AI Profile analysis",
+                  "Advanced cloud and seedbox workflows",
                 ].map((b, i) => (
                   <div key={i} className="flex items-start gap-3 text-sm text-white/80">
                     <Lucide.Check className="w-4 h-4 mt-0.5 text-[#7FFF00] flex-shrink-0" />
@@ -227,7 +230,7 @@ export default function VidDLWebsite() {
               </div>
 
               <p className="text-xs text-white/50 max-w-xs mx-auto lg:mx-0 mb-6">
-                Free tier is fully functional for casual use. Pro removes limits and unlocks advanced features.
+                Free includes 3 downloads. Pro removes limits and unlocks Feed, Favorites, Profile, and advanced workflows.
               </p>
 
               <div className="flex flex-col items-center gap-2 lg:items-start">
@@ -250,11 +253,11 @@ export default function VidDLWebsite() {
                 <MascotSticker mascot="couponPro" size="tiny" />
                 <div>
                   <div className="text-sm font-semibold text-[#FCD34D]">Pro coupon ready</div>
-                  <div className="text-xs text-white/45">One tiny unlock. Big workflow boost.</div>
+                  <div className="text-xs text-white/45">One tiny unlock. Feed, Favorites, Profile.</div>
                 </div>
               </div>
               <div className="rounded-2xl border border-white/10 bg-black/20 px-3 py-2 text-xs leading-relaxed text-white/45">
-                Includes instant activation, cloud workflow boosts, and ongoing extractor updates.
+                Includes instant activation, unlimited downloads, AI Profile analysis, and advanced cloud workflows.
               </div>
             </div>
           </div>

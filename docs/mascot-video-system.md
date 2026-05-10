@@ -4,7 +4,7 @@
 
 `viddlweb` is a static Next.js App Router landing page for VidDL. The current visual direction is a dark, professional macOS software site with polished Asian ecommerce campaign energy layered in through mascots, coupon chips, glow stickers, and short muted loop videos.
 
-As of the 2026-05-07 website sync, the site should present the current native app surfaces: Home, Feed, Favorites, Library, Files, and Settings. The old mock-only surfaces History, Downloads, Mega, Scheduler, Transfers, and Processing should not appear as primary app navigation in the website mockup.
+As of the 2026-05-09 website sync, the site should present the current native app surfaces: Home, Feed, Favorites, Library, Files, Profile, and Settings. The old mock-only surfaces History, Downloads, Mega, Scheduler, Transfers, and Processing should not appear as primary app navigation in the website mockup.
 
 The repo is initialized on `main` and pushed to `https://github.com/knath2000/viddlweb.git`. The app builds as a static route at `/` and is intended for Vercel deployment.
 
@@ -22,7 +22,7 @@ https://ntljfyjjg5ctumgj.public.blob.vercel-storage.com/VidDL-2.0.0.dmg?download
 - `FeatureCard`: supports contextual mascot thumbnails in normal card flow with fixed spacing below the copy.
 - `DownloadCTA`: uses the large hype mascot, a cloud transfer loop video, and a real DMG link via `DOWNLOAD_URL`.
 - `PreviewTour`: client-side tab controller for the current mock app screens.
-- `FeedScreen`, `FavoritesScreen`, and `FilesScreen`: static preview screens for Feed discovery, saved Feed items, and seedbox file management.
+- `FeedScreen`, `FavoritesScreen`, `FilesScreen`, and `ProfileScreen`: static preview screens for Feed discovery, saved Feed items, seedbox file management, and AI Profile analysis.
 
 ## Asset Inventory
 
@@ -33,7 +33,7 @@ Final mascot files live in `public/`:
 - `mascot-coupon-pro.png`: Pro coupon mascot.
 - `mascot-cloud-transfer.png`: Mega/Drive/cloud transfer mascot.
 - `mascot-queue-speed.png`: queue and speed mascot.
-- `mascot-browser-capture.png`: Safari/browser capture mascot.
+- `mascot-browser-capture.png`: browser capture mascot.
 - `mascot-library-archive.png`: library/history/archive mascot.
 - `mascot-tools-setup.png`: settings/setup/tools mascot.
 - `mascot-local-safe.png`: local/private save mascot.
@@ -59,6 +59,7 @@ Loop videos live in `public/videos/`:
 - Feature cards:
   - Feed discovery: `mascot-browser-capture.png`.
   - Feed favorites and Library: `mascot-library-archive.png`.
+  - AI Profile: `mascot-support-faq.png`.
   - Batch extraction: `mascot-batch-links.png`.
   - Native/local extraction: `mascot-local-safe.png`.
   - Paste pages: `mascot-batch-links.png`.
@@ -68,13 +69,16 @@ Loop videos live in `public/videos/`:
   - Track everything: `mascot-library-archive.png`.
 - Feature pill hover accents:
   - Menu bar and Siri: `mascot-quick-action.png`.
-  - Safari extension: `mascot-browser-capture.png`.
+  - Feed discovery: `mascot-browser-capture.png`.
+  - AI Profile: `mascot-support-faq.png`.
 - Preview:
   - Home preview shows Feed-aware extraction and queue state.
-  - Feed preview shows AllPornStream, HQPorner, and OnlyFan420/Rentry discovery.
+  - Feed preview shows built-in discovery sources, native extractors, and hover previews.
   - Favorites preview shows saved Feed items before extraction.
   - Library preview remains inside macOS window chrome.
   - Files preview shows seedbox/WebDAV browser state.
+  - Profile preview shows Pro AI Profile analysis from favorites, Feed evidence, and Library history.
+  - Settings preview shows a selector-driven Cloud Destinations section instead of separate destination cards.
 - Workflow:
   - Step 01: `mascot-browser-capture.png`.
   - Step 02: `mascot-tools-setup.png`.
@@ -83,6 +87,7 @@ Loop videos live in `public/videos/`:
 - Pro:
   - `mascot-coupon-pro.png` beside the price and in the side panel.
   - `pro-coupon-loop.mp4` in the desktop Pro side panel.
+  - Pro copy should center on unlimited downloads, Feed, Favorites, AI Profile, and advanced cloud/seedbox workflows.
 - Download CTA:
   - `mascot-viddl-hype.png` as the large CTA mascot.
   - `cloud-transfer-loop.mp4` as a desktop cloud transfer accent.
@@ -138,5 +143,5 @@ Content-Type: application/x-diskcopy
 
 - Before production release, decide whether to restore a reduced-motion accessibility policy. For testing, all motion currently plays even when Reduce Motion is enabled.
 - If a future generated mascot has visible edge artifacts, regenerate or manually clean only that specific asset.
-- The UI currently labels the DMG as `18 MB`; the uploaded Blob response was about 2.9 MB. Update that display if the final signed/notarized DMG size differs.
+- The UI currently labels the DMG as `4.8 MB`, matching the local `/Users/kalyannath/Projects/pmvhavendownloader/VidDL-2.0.0.dmg` generated on 2026-05-09. Recheck after uploading a final replacement Blob.
 - `npm run build` can fail in restricted-network Codex sessions because `next/font/google` fetches Geist and Geist Mono from `fonts.googleapis.com`; `npm run lint` and `npx tsc --noEmit` are the local no-network validation baseline unless the font dependency is changed or network is available.

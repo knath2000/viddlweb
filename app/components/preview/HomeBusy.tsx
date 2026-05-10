@@ -79,21 +79,21 @@ function HomeQueue() {
   return (
     <div className="flex-1 px-5 py-4 space-y-3 overflow-hidden">
       <DownloadRow
-        platform="HQ"
+        platform="NAT"
         title={LIBRARY_SAMPLES[0].title}
-        meta="HQ · MP4"
+        meta="Native · MP4"
         progress={62}
         detail="7:42 / 12:34 · native extract · saving locally"
       />
       <DownloadRow
-        platform="OF"
+        platform="YT"
         title={LIBRARY_SAMPLES[1].title}
         meta="720p · MP4"
         queued
         detail="Batch item 2 of 5"
       />
       <DownloadRow
-        platform="APS"
+        platform="FD"
         title={LIBRARY_SAMPLES[2].title}
         meta="1080p · MP4"
         done
